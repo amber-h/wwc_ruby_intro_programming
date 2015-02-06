@@ -32,15 +32,16 @@
 
 <h1>Hints</h1>
 
-<p>Remember that one degree fahrenheit is 5/9 of one degree celsius, and that the freezing point of water is 0 degrees celsius but 32 degrees fahrenheit.</p>
+<p>To convert from fahrenheit to celsius, subtract 32 and multiply by 5/9</p>
 
-<p>In integer math, there <strong>are no fractions</strong>. So if you are using integer literals, you will be using integer math, which means, for example...</p>
+<p>Remember, in fixnum math, there <strong>are no fractions</strong>. So if you are using fixnums...</p>
 
 <p>   1 / 2 => 0</p>
 
-<p>In floating point math, there <strong>are</strong> fractions. So...</p>
+<p>In float math, there <strong>are</strong> fractions. So...</p>
 
 <p>   1.0 / 2.0 => 0.5</p>
+
 </div>
   <div class="tests">
     <h1>Tests</h1>
@@ -50,47 +51,38 @@ require &quot;temperature&quot;
 
 describe &quot;temperature conversion functions&quot; do
 
-  describe &quot;#ftoc&quot; do
+  describe &quot;#fahrenheit_to_celsius&quot; do
 
     it &quot;converts freezing temperature&quot; do
-      ftoc(32).should == 0
+      fahrenheit_to_celsius(32).should == 0
     end
 
     it &quot;converts boiling temperature&quot; do
-      ftoc(212).should == 100
+      fahrenheit_to_celsius(212).should == 100
     end
 
     it &quot;converts body temperature&quot; do
-      ftoc(98.6).should == 37
+      fahrenheit_to_celsius(98.6).should == 37
     end
 
-    it &quot;converts arbitrary temperature&quot; do
-      ftoc(68).should == 20
+    it &quot;converts a temperature and rounds to 1 decimal place&quot; do
+      fahrenheit_to_celsius(68).should == 20
     end
 
   end
 
-  describe &quot;#ctof&quot; do
+  describe &quot;#celsius_to_fahrenheit&quot; do
 
     it &quot;converts freezing temperature&quot; do
-      ctof(0).should == 32
+      celsius_to_fahrenheit(0).should == 32
     end
 
     it &quot;converts boiling temperature&quot; do
-      ctof(100).should == 212
+      celsius_to_fahrenheit(100).should == 212
     end
 
-    it &quot;converts arbitrary temperature&quot; do
-      ctof(20).should == 68
-    end
-
-    it &quot;converts body temperature&quot; do
-      ctof(37).should be_within(0.1).of(98.6)
-      # Why do we need to use be_within?
-      # See http://www.ruby-forum.com/topic/169330
-      # and http://en.wikipedia.org/wiki/IEEE_754-2008
-      # and http://en.wikipedia.org/wiki/Double_precision_floating-point_format
-      # Also, try &quot;puts 0.5 - 0.4 - 0.1&quot; -- pretty crazy, right?
+    it &quot;converts a temperature and rounds to 1 decimal place&quot; do
+      celsius_to_fahrenheit(20).should == 68
     end
 
   end
