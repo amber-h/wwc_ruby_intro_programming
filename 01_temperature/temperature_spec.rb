@@ -19,22 +19,22 @@ require "temperature"
 
 describe "temperature conversion functions" do
 
-  describe "#farenheit_to_celsius" do
+  describe "#fahrenheit_to_celsius" do
 
     it "converts freezing temperature" do
-      farenheit_to_celsius(32).should == 0
+      fahrenheit_to_celsius(32).should == 0
     end
 
     it "converts boiling temperature" do
-      farenheit_to_celsius(212).should == 100
+      fahrenheit_to_celsius(212).should == 100
     end
 
     it "converts body temperature" do
-      farenheit_to_celsius(98.6).should == 37
+      fahrenheit_to_celsius(98.6).should == 37
     end
 
     it "converts arbitrary temperature" do
-      farenheit_to_celsius(68).should == 20
+      fahrenheit_to_celsius(68).should == 20
     end
 
   end
@@ -42,19 +42,19 @@ describe "temperature conversion functions" do
   describe "#celsius_to_farenheit" do
 
     it "converts freezing temperature" do
-      celsius_to_farenheit(0).should == 32
+      celsius_to_fahrenheit(0).should == 32
     end
 
     it "converts boiling temperature" do
-      celsius_to_farenheit(100).should == 212
+      celsius_to_fahrenheit(100).should == 212
     end
 
     it "converts arbitrary temperature" do
-      celsius_to_farenheit(20).should == 68
+      celsius_to_fahrenheit(20).should == 68
     end
 
     it "converts body temperature" do
-      celsius_to_farenheit(37).should be_within(0.1).of(98.6)
+      celsius_to_fahrenheit(37).should be_within(0.1).of(98.6)
       # Why do we need to use be_within?
       # See http://www.ruby-forum.com/topic/169330
       # and http://en.wikipedia.org/wiki/IEEE_754-2008
