@@ -5,11 +5,6 @@
 # * functions
 # * strings
 # * default parameter values
-#
-# ## Hints
-#
-# When you make the second `repeat` test pass, you might break the **first**
-#
 
 require "simon_says"
 
@@ -31,20 +26,6 @@ describe "Simon says" do
 
     it "should shout multiple words" do
       shout("hello world").should == "HELLO WORLD"
-    end
-  end
-
-  describe "repeat" do
-    it "should repeat" do
-      repeat("hello").should == "hello hello"
-    end
-
-    # Wait a second! How can you make the "repeat" method
-    # take one *or* two arguments?
-    #
-    # Hint: *default values*
-    it "should repeat a number of times" do
-      repeat("hello", 3).should == "hello hello hello"
     end
   end
 
@@ -79,18 +60,5 @@ describe "Simon says" do
     it "capitalizes a word" do
       titleize("jaws").should == "Jaws"
     end
-
-    it "capitalizes every word (aka title case)" do
-      titleize("david copperfield").should == "David Copperfield"
-    end
-
-    it "doesn't capitalize 'little words' in a title" do
-      titleize("war and peace").should == "War and Peace"
-    end
-
-    it "does capitalize 'little words' at the start of a title" do
-      titleize("the bridge over the river kwai").should == "The Bridge over the River Kwai"
-    end
   end
-
 end
